@@ -1,5 +1,6 @@
-import { View, Text, FlatList, Image, StyleSheet, useEffect, useState  } from 'react-native'
-import React from 'react'
+import { View, Text, FlatList, Image, StyleSheet  } from 'react-native'
+import React, { useEffect, useState } from 'react';
+
 
 export default function Personaje(){
 
@@ -9,9 +10,8 @@ export default function Personaje(){
     fetch('https://swapi.dev/api/people/')
     .then((response)=>response.json())
     .then((json) => setData(json.results))
-    .catch((error)=>console.log(error))
-    .finally(() => setLoading(false));
-  }, [])
+    .catch((error)=>console.log(error));
+    }, [])
   
   return (
     <View style={styles.container}>
@@ -32,7 +32,7 @@ export default function Personaje(){
       />
     </View>
   )
-}
+};
 
 const styles = StyleSheet.create({
   container: {
